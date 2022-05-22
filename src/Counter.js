@@ -1,3 +1,4 @@
+// useState is a built-in hook
 import { useState } from 'react';
 
 export const Counter = () => {
