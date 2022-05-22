@@ -5,7 +5,14 @@ export const Counter = () => {
     
     return (
         <div>
-            <p>Count: {count}</p> 
+            <p
+                style={{
+                    color: count % 2 === 0 ? 'blue' : 'red',
+                    fontSize: '80px',
+                }}
+            >
+                Count: {count}
+            </p> 
             <button
                 onClick={() => {
                     setCount(count + 1);
