@@ -1,45 +1,23 @@
 import { useState } from 'react';
 
 export const TodoApp = () => {
-    // const [ todoText, setTodoText ] = useState('');
-    const [ formInputs, setFormInputs ] = useState({
-        username: '',
-        password: '',
-    });
+    const [ todoInput, setTodoInput ] = useState('');
 
     const [ todos, setTodos ] = useState([]);
 
     return (
         <>
-            {/* <input
-                onChange={ (event) => {
-                    setTodoText(event.target.value);                
-                }}
-                value={todoText}
-            /> */}
             <input
-                name='username'
                 onChange={ (event) => {
-                    setFormInputs({
-                        ...formInputs,
-                        username: event.target.value
-                    });
+                    setTodoInput(event.target.value);                
                 }}
-                value={formInputs.username}
-            />
-            <input
-                name='password'
-                onChange={ (event) => {
-                    setFormInputs({
-                        ...formInputs,
-                        password: event.target.value
-                    });
-                }}
-                value={formInputs.password}
+                value={todoInput}
             />
             <button
                 onClick={() => {
-                    console.log(formInputs);
+                    const newTodos = [...todos, todoInput];
+                    setTodos(newTodos);
+                    setTodoInput('');
                 }}
             >Submit</button>
             {
